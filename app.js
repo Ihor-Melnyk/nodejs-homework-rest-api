@@ -13,6 +13,7 @@ mongoose
   })
   .catch((error) => {
     console.log(error.message);
+    console.log(1);
   });
 
 const contactsRouter = require("./routes/api/contacts");
