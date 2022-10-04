@@ -1,8 +1,10 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
+require("dotenv").config();
 
 const contactsRouter = require("./routes/api/contacts");
+
 const morgan = require("morgan");
 
 const app = express();
@@ -13,13 +15,6 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-// // ----------- hw-code------------
-// app.use(morgan("tiny"));
-
-// app.post("/home", (req, res) => {
-//   res.json();
-// });
-// // -----------end hw-code ---------
 app.use("/api/contacts", contactsRouter);
 
 app.use((req, res) => {
