@@ -1,23 +1,11 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-
-const mongoose = require("mongoose");
-// const PORT = process.env.PORT;
-const DB_HOST = process.env.MONGO_URL;
-
-mongoose
-  .connect(DB_HOST)
-  .then(() => {
-    console.log("Datanse connect success");
-  })
-  .catch((error) => {
-    console.log(error.message);
-  });
+require("dotenv").config();
 
 const contactsRouter = require("./routes/api/contacts");
 
-// const morgan = require("morgan");
+const morgan = require("morgan");
 
 const app = express();
 
