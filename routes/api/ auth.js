@@ -31,7 +31,7 @@ router.get("/logout", authenticate, ctrlWrapper(ctrl.logout));
 router.patch(
   "/users",
   authenticate,
-  // validateBody(schemas.updateSubscriptionSchema),
+  validateBody(schemas.updateSubscriptionSchema),
   ctrlWrapper(ctrl.updateSubscription)
 );
 
