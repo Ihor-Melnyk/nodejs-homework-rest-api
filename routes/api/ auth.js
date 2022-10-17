@@ -8,7 +8,8 @@ const { ctrlWrapper } = require("../../helpers");
 
 const { schemas } = require("../../models/user");
 
-const { validateBody, authenticate } = require("../../middlewares");
+const { validateBody, authenticate, upload } = require("../../middlewares");
+const { single } = require("../../middlewares/upload");
 
 //signup
 router.post(
@@ -33,6 +34,13 @@ router.patch(
   authenticate,
   validateBody(schemas.updateSubscriptionSchema),
   ctrlWrapper(ctrl.updateSubscription)
+);
+
+router.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  ctrlWrapper(ctrl.updateAvatar)
 );
 
 module.exports = router;
