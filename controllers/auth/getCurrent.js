@@ -5,7 +5,6 @@ const getCurrent = async (req, res) => {
     name,
     email,
   });
-  console.log();
 };
 
 module.exports = getCurrent;
